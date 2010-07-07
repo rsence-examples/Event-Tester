@@ -1,0 +1,158 @@
+type: GUITree
+version: 0.6
+
+dependencies:
+  - default_theme
+  - controls
+
+include:
+  - event_test
+
+class: RSence.GUIApp
+options:
+  - priority: 0
+  - label: Event Test
+subviews:
+  - class: HWindow
+    rect: [ 0, 0, 400, 400 ]
+    options:
+      label: Event Test
+    subviews:
+      # Main Event Responder
+      - class: HStringView
+        rect: [ 16, 12, ~, 20, 16, ~ ]
+        options:
+          value: Test events in this box
+      - class: EventTest.Control
+        rect: [ 8, 4, ~, 48, 8, ~ ]
+        options:
+          style:
+            - [ border, '1px solid #ccc' ]
+      - class: HTab
+        rect: [ 8, ~, ~, 200, 8, 8 ]
+        subviews:
+          - class: HTabItem
+            rect: auto
+            options:
+              label: Mouse
+            subviews:
+              # Mouse Event Grouping:
+              - class: HScrollView
+                rect: [ 8, 7, 160, ~, ~, 8 ]
+                options:
+                  scrollX: false
+                  scrollY: auto
+                  style:
+                    - [ border, '1px solid #ccc' ]
+                    - [ background, '#f6f6f6' ]
+                subviews:
+                - class: HStringView
+                  rect: [ 8, 4, ~, 20, 0, ~ ]
+                  options:
+                    value: <u>Mouse Events:</u>
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 20, 200, 24 ]
+                  bind: :values.mouseDown
+                  options:
+                    label: setMouseDown
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 44, 200, 24 ]
+                  bind: :values.mouseUp
+                  options:
+                    label: setMouseUp
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 68, 200, 24 ]
+                  bind: :values.click
+                  options:
+                    label: setClick
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 92, 200, 24 ]
+                  bind: :values.mouseMove
+                  options:
+                    label: setMouseMove
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 116, 200, 24 ]
+                  bind: :values.mouseWheel
+                  options:
+                    label: setMouseWheel
+          - class: HTabItem
+            rect: auto
+            options:
+              label: 'Drag & Drop'
+            subviews:
+              # Keyboard Event Grouping:
+              - class: HScrollView
+                rect: [ 8, 7, 160, ~, ~, 8 ]
+                options:
+                  scrollX: false
+                  scrollY: auto
+                  style:
+                    - [ border, '1px solid #ccc' ]
+                    - [ background, '#f6f6f6' ]
+                subviews:
+                - class: HStringView
+                  rect: [ 8, 4, ~, 20, 0, ~ ]
+                  options:
+                    value: '<u>Drag &amp; Drop Events:</u>'
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 20, 200, 24 ]
+                  bind: :values.drag
+                  options:
+                    label: setDraggable
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 44, 200, 24 ]
+                  bind: :values.drop
+                  options:
+                    label: setDroppable
+          - class: HTabItem
+            rect: auto
+            options:
+              label: Keyboard
+            subviews:
+              # Keyboard Event Grouping:
+              - class: HScrollView
+                rect: [ 8, 7, 160, ~, ~, 8 ]
+                options:
+                  scrollX: false
+                  scrollY: auto
+                  style:
+                    - [ border, '1px solid #ccc' ]
+                    - [ background, '#f6f6f6' ]
+                subviews:
+                - class: HStringView
+                  rect: [ 8, 4, ~, 20, 0, ~ ]
+                  options:
+                    value: <u>Keyboard Events:</u>
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 20, 200, 24 ]
+                  bind: :values.textEnter
+                  options:
+                    label: setTextEnter
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 44, 200, 24 ]
+                  bind: :values.keyDown
+                  options:
+                    label: setKeyDown
+                - class: EventTest.EventCheckbox
+                  rect: [ 8, 68, 200, 24 ]
+                  bind: :values.keyUp
+                  options:
+                    label: setKeyUp
+      - class: HView
+        rect: [ 184, ~, ~, 159, 16, 16 ]
+        options:
+          style:
+            - [ border, '1px solid #ccc' ]
+            - [ background, '#f6f6f6' ]
+        subviews:
+        - class: HStringView
+          rect: [ 8, 4, ~, 20, 0, ~ ]
+          options:
+            value: '<u>Global Event Status:</u>'
+      - class: EventTest.Draggable
+        rect: [ 300, 20, 20, 20 ]
+        options:
+          minSize: [ 20, 20 ]
+          maxSize: [ 40, 40 ]
+          events:
+            drag: true

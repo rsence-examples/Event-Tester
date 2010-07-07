@@ -1,0 +1,33 @@
+# text events
+:mouseDown:
+  :value: true
+  :restore_default: false
+:mouseUp:
+  :value: true
+  :restore_default: false
+:click:
+  :value: true
+  :restore_default: false
+:mouseMove:
+  :value: true
+  :restore_default: false
+:mouseWheel:
+  :value: true
+  :restore_default: false
+# keyboard events
+:textEnter:
+  :value: true
+  :restore_default: false
+:keyUp:
+  :value: true
+  :restore_default: false
+:keyDown:
+  :value: true
+  :restore_default: false
+# drag & drop
+:drag:
+  :value: true
+  :restore_default: false
+:drop:
+  :value: true
+  :restore_default: false
