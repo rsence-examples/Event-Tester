@@ -10,14 +10,14 @@ include:
 
 class: RSence.GUIApp
 options:
-  - priority: 0
-  - label: Event Test
+  priority: 10
+  label: Event Test
 subviews:
-  - class: HWindow
-    rect: [ 0, 0, 400, 400 ]
-    options:
-      label: Event Test
-    subviews:
+  # - class: HWindow
+  #   rect: [ 0, 0, 400, 400 ]
+  #   options:
+  #     label: Event Test
+  #   subviews:
       # Main Event Responder
       - class: HStringView
         rect: [ 16, 12, ~, 20, 16, ~ ]
@@ -28,6 +28,17 @@ subviews:
         options:
           style:
             - [ border, '1px solid #ccc' ]
+      - class: HStringView
+        rect: [ 8, 60, 100, 30 ]
+        options:
+          value: '<u>Event Log:</u>'
+      - class: EventTest.Reporter
+        rect: [ 8, 80, ~, ~, 8, 216 ]
+        options:
+          eventLog: [ ]
+          events:
+            resize: true
+          value: ''
       - class: HTab
         rect: [ 8, ~, ~, 200, 8, 8 ]
         subviews:
@@ -50,27 +61,27 @@ subviews:
                   rect: [ 8, 4, ~, 20, 0, ~ ]
                   options:
                     value: <u>Mouse Events:</u>
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 20, 200, 24 ]
                   bind: :values.mouseDown
                   options:
                     label: setMouseDown
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 44, 200, 24 ]
                   bind: :values.mouseUp
                   options:
                     label: setMouseUp
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 68, 200, 24 ]
                   bind: :values.click
                   options:
                     label: setClick
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 92, 200, 24 ]
                   bind: :values.mouseMove
                   options:
                     label: setMouseMove
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 116, 200, 24 ]
                   bind: :values.mouseWheel
                   options:
@@ -94,12 +105,12 @@ subviews:
                   rect: [ 8, 4, ~, 20, 0, ~ ]
                   options:
                     value: '<u>Drag &amp; Drop Events:</u>'
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 20, 200, 24 ]
                   bind: :values.drag
                   options:
                     label: setDraggable
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 44, 200, 24 ]
                   bind: :values.drop
                   options:
@@ -123,17 +134,17 @@ subviews:
                   rect: [ 8, 4, ~, 20, 0, ~ ]
                   options:
                     value: <u>Keyboard Events:</u>
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 20, 200, 24 ]
                   bind: :values.textEnter
                   options:
                     label: setTextEnter
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 44, 200, 24 ]
                   bind: :values.keyDown
                   options:
                     label: setKeyDown
-                - class: EventTest.EventCheckbox
+                - class: EventTest.Checkbox
                   rect: [ 8, 68, 200, 24 ]
                   bind: :values.keyUp
                   options:
@@ -149,10 +160,12 @@ subviews:
           rect: [ 8, 4, ~, 20, 0, ~ ]
           options:
             value: '<u>Global Event Status:</u>'
+        - class: EventTest.GlobalStatus
+          rect: [ 8, 24, ~, ~, 8, 8 ]
       - class: EventTest.Draggable
-        rect: [ 300, 20, 20, 20 ]
+        rect: [ 300, 20, 80, 40 ]
         options:
-          minSize: [ 20, 20 ]
-          maxSize: [ 40, 40 ]
+          minSize: [ 80, 40 ]
+          maxSize: [ 80, 40 ]
           events:
             drag: true

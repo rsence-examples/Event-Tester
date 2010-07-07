@@ -9,14 +9,14 @@
   :value: true
   :restore_default: false
 :mouseMove:
-  :value: true
+  :value: false
   :restore_default: false
 :mouseWheel:
   :value: true
   :restore_default: false
 # keyboard events
 :textEnter:
-  :value: true
+  :value: false
   :restore_default: false
 :keyUp:
   :value: true
@@ -26,7 +26,7 @@
   :restore_default: false
 # drag & drop
 :drag:
-  :value: true
+  :value: false
   :restore_default: false
 :drop:
   :value: true
